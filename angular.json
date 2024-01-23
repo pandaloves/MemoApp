@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "client": {
+    "MemoApp": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/client",
+            "outputPath": "dist/MemoApp",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -25,7 +25,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.min.css"
             ],
             "scripts": []
           },
@@ -57,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "client:build:production"
+              "buildTarget": "MemoApp:build:production"
             },
             "development": {
-              "buildTarget": "client:build:development"
+              "buildTarget": "MemoApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -68,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "client:build"
+            "buildTarget": "MemoApp:build"
           }
         },
         "test": {
@@ -84,6 +87,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -91,5 +95,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "9c12c546-9e55-4c3d-8e69-edad3fbba1c5"
   }
 }

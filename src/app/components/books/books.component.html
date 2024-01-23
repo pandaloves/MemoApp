@@ -1,0 +1,29 @@
+<!-- Table -->
+  <div class="d-flex justify-content-end m-2 book-container">
+    <button class="btn btn-primary p-1 rounded fs-6"[routerLink]="'/book/form'">Add book</button>
+  </div>
+  
+  <div class="container mt-5">
+  <table class="table table-responsive table-hover text-center table-bordered border-dark text-capitalize">
+      <tr class="table-white table-active text-uppercase text-black">
+        <th>Book ID</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Publish Year</th>
+        <th>Action</th>
+      </tr>
+    
+    @for (item of (books$ | async); track item) {
+      <tr>
+        <td scope="row" class="fs-12">  {{item.id}}</td>
+        <td class="fs-12 fst-italic fw-medium"> {{item.title}}</td>
+        <td class="fs-12"> {{item.author}}</td>
+        <td class="fs-12"> {{item.publishYear}}</td>
+        <td class="fs-12">
+          <a [routerLink]="['/books/',item.id]"><button class="btn btn-primary round m-1" >Edit</button></a>
+          <a (click)="delete(item.id)"><button class="btn btn-danger round m-1">Delete</button></a>
+        </td>
+      </tr>
+    }
+  </table>
+</div>

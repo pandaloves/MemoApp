@@ -1,0 +1,27 @@
+<form [formGroup]="form" class="position-relative"
+(ngSubmit)="onSubmit()"
+>
+    <div class="border border-light-subtle rounded position-absolute top-4 start-50 translate-middle-x p-3">
+        <h5 class="fs-4">{{isEdit ? 'Edit book' : 'Add book'}}</h5>
+       
+        <input formControlName="title" class="form-control form-control-lg m-2" type="text" placeholder="title"  >
+        @if(form.controls['title'].errors && form.controls['title'].touched) {
+        <span class="fs-15 text-danger m-1">Title is required.</span>
+        }
+     
+        <input formControlName="author" class="form-control form-control-lg m-2" type="text" placeholder="author">
+        @if(form.controls['author'].errors && form.controls['author'].touched) {
+            <span class="fs-15 text-danger m-1">Author is required.</span>
+            }
+     
+        <input formControlName="publishYear" class="form-control form-control-lg m-2" type="text" placeholder="publish year"  aria-label=".form-control-sm example">
+        @if(form.controls['publishYear'].errors && form.controls['publishYear'].touched) {
+            <span class="fs-15 text-danger m-1">Publish year is required.</span>
+            }
+        <div class="m-2">
+            <button type="submit" class="link-primary link-opacity-50-hover text-light text-bg-primary m-2 p-1 rounded fs-6">{{isEdit ? 'Edit book' : 'Add book'}}</button>
+            <a [routerLink]="'/books'" class="link-danger link-opacity-50-hover text-light text-bg-danger p-1 rounded fs-6">Cancel</a>
+           <!-- {{form.value | json}} -->
+        </div>
+    </div>
+</form>
