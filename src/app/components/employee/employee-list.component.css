@@ -1,13 +1,15 @@
-
-table{
-    width: 100%;
+.mat-elevation-z8{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    font-size: 16px;
 }
 
 .mat-column-id {
      word-wrap: break-word !important;
      white-space: unset !important;
-     flex: 0 0 6% !important;
-     width: 6% !important;
+     flex: 0 0 3% !important;
+     width: 8% !important;
      overflow-wrap: break-word;
      word-wrap: break-word;
      word-break: break-word;
@@ -20,8 +22,8 @@ table{
 .mat-column-name {
      word-wrap: break-word !important;
      white-space: unset !important;
-     flex: 0 0 10% !important;
-     width: 10% !important;
+     flex: 0 0 8% !important;
+     width: 12% !important;
      overflow-wrap: break-word;
      word-wrap: break-word;
      word-break: break-word;
@@ -34,8 +36,8 @@ table{
 .mat-column-age {
      word-wrap: break-word !important;
      white-space: unset !important;
-     flex: 0 0 8% !important;
-     width: 8% !important;
+     flex: 0 0 4% !important;
+     width: 10% !important;
      overflow-wrap: break-word;
      word-wrap: break-word;
      word-break: break-word;
@@ -48,7 +50,7 @@ table{
 .mat-column-email {
      word-wrap: break-word !important;
      white-space: unset !important;
-     flex: 0 0 15% !important;
+     flex: 0 0 10% !important;
      width: 15% !important;
      overflow-wrap: break-word;
      word-wrap: break-word;
@@ -62,8 +64,8 @@ table{
 .mat-column-phone {
      word-wrap: break-word !important;
      white-space: unset !important;
-     flex: 0 0 10% !important;
-     width: 10% !important;
+     flex: 0 0 7% !important;
+     width: 12% !important;
      overflow-wrap: break-word;
      word-wrap: break-word;
      word-break: break-word;
@@ -76,8 +78,8 @@ table{
    .mat-column-salary {
     word-wrap: break-word !important;
     white-space: unset !important;
-    flex: 0 0 10% !important;
-    width: 10% !important;
+    flex: 0 0 7% !important;
+    width: 12% !important;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
@@ -87,7 +89,16 @@ table{
     hyphens: auto;
   }
   .mat-column-action {
-    flex: 0 0 30px !important;
+    word-wrap: break-word !important;
     white-space: unset !important;
-  } 
-
+    flex: 0 0 3% !important;
+    width: 5% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+  

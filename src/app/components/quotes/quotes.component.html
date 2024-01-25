@@ -1,0 +1,29 @@
+<!-- Table -->  
+  <div class="d-flex justify-content-end m-2">
+    <button class="btn btn-primary p-1 rounded fs-6 add-quote"[routerLink]="'/quote/form'">Add Quote</button>
+  </div>
+  
+  <div class="container mt-5 quote-container">
+  <table class="table table-responsive table-hover text-center table-bordered border-dark text-capitalize">
+   
+      <tr class="table-white table-active text-uppercase text-black">
+        <th>ID</th>
+        <th>Author</th>
+        <th>Content</th>
+        <th>Action</th>
+      </tr>
+    
+     @for (item of (quotes$ | async); track item) {
+      <tr style="height: 40px;">
+        <td class="fs-12"> {{item.id}}</td>
+        <td class="fs-12"> {{item.author}}</td>
+        <td class="fs-12 fw-medium">"{{item.content}}"</td>
+        <td class="fs-12">
+          <i class="fa fa-trash" aria-hidden="true" (click)="delete(item.id)" style="color: red;"></i>    
+        </td>
+      </tr>
+    }
+  </table>
+</div>
+
+

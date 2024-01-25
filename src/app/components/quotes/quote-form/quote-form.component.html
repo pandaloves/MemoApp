@@ -1,0 +1,24 @@
+<form [formGroup]="form" class="position-relative"
+(ngSubmit)="onSubmit()"
+>
+    <div class="border border-light-subtle rounded position-absolute top-4 start-50 translate-middle-x p-3">
+        <h5 class="fs-4"> Add quote</h5>
+     
+        <input formControlName="author" class="form-control form-control-lg m-2" type="text" placeholder="author"  >
+        @if(form.controls['author'].errors && form.controls['author'].touched) {
+            <span class="fs-15 text-danger m-1">Author is required.</span>
+            }
+
+        <textarea formControlName="content" class="form-control form-control-lg m-2" type="text" placeholder="content"   rows="4" cols="60">
+        @if(form.controls['content'].errors && form.controls['content'].touched) {
+            <span class="fs-15 text-danger m-1">Content is required.</span>
+            }
+        </textarea>
+
+        <div class="m-2">
+            <button class="link-primary link-opacity-50-hover text-light text-bg-primary m-2 p-1 rounded fs-6">Add quote</button>
+            <a [routerLink]="'/quotes'" class="link-danger link-opacity-50-hover text-light text-bg-danger p-1 rounded fs-6">Cancel</a>
+           <!-- {{form.value | json}} -->
+        </div>
+    </div>
+</form>

@@ -11,5 +11,22 @@ import { HeaderComponent } from './components/header/header.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'MemoApp';
+title = 'MemoApp';
+
+darkMode = false;
+constructor() {
+  this.dectectColorScheme();
+}
+
+dectectColorScheme() {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    this.darkMode = true;
+    document.documentElement.setAttribute('data-theme', this.darkMode ? 'dark' : 'light');
+  }
+}
+
+toggleTheme() {
+  this.darkMode = !this.darkMode;
+  document.documentElement.setAttribute('data-theme', this.darkMode ? 'dark' : 'light');
+}
 }
