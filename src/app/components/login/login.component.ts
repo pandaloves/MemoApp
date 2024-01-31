@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpService } from '../../http.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink, } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -15,6 +15,7 @@ import { ToastrService } from 'ngx-toastr';
     MatCardModule,
     ReactiveFormsModule,
     MatButtonModule,
+    RouterLink
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
