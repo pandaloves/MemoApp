@@ -4,8 +4,8 @@ import { BookFormComponent } from './components/books/book-form/book-form.compon
 import { QuotesComponent } from './components/quotes/quotes.component';
 import { QuoteFormComponent } from './components/quotes/quote-form/quote-form.component';
 import { LoginComponent } from './components/login/login.component';
-import { EmployeeListComponent } from './components/employee/employee-list.component';
-import { EmployeeFormComponent } from './components/employee/employee-form/employee-form.component';
+import { SignupComponent } from './components/signup/signup.component';
+
 
 export const routes: Routes = [
     {path:'', redirectTo:'books', pathMatch:'full'},
@@ -34,21 +34,12 @@ export const routes: Routes = [
         path: 'quotes/:id',
         component: QuoteFormComponent
     },
-    {
-        path: 'employee-list',
-        component: EmployeeListComponent,
-      },
-      {
-        path: 'create-employee',
-        component: EmployeeFormComponent,
-      },
-      {
-        path: 'employee/:id',
-        component: EmployeeFormComponent,
-      },
-    {
+     {
         path: 'login',
         component: LoginComponent,
       },
-
+      {
+        path: 'signup',
+        component: SignupComponent,
+      }
 ];

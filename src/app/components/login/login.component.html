@@ -14,8 +14,12 @@
           <input matInput type="password" formControlName="password" />
         </mat-form-field>
       </div>
-      <div class="w-full flex justify-center">
-        <button mat-raised-button color="primary" (click)="onLogin()">Login</button>
+      <div class="w-full flex justify-center btn">
+        <button mat-raised-button color="primary"  type="button" (click)="onLogin()">Login</button>
+      </div>
+      <div class="w-full flex justify-center btn">
+        <h5>Don't have an account?</h5>
+        <button mat-raised-button color="warn" type="button" [routerLink]="'/signup'">Signup</button>
       </div>
     </form>
   </mat-card>
