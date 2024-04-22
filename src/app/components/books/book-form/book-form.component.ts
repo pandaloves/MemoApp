@@ -11,7 +11,6 @@ import { ToastrService } from 'ngx-toastr';
   standalone: true,
   imports: [ReactiveFormsModule,JsonPipe,RouterLink],
   templateUrl: './book-form.component.html',
-  styleUrl: './book-form.component.css'
 })
 export class BookFormComponent implements OnInit, OnDestroy {
 form!:FormGroup;

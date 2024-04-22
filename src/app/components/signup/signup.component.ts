@@ -8,47 +8,40 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { HttpService } from '../../http.service';
-import { IEmployee } from '../../interfaces/employee';
+import { IUser } from '../../interfaces/user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-signup', 
+  selector: 'app-signup',
   standalone: true,
   imports: [MatInputModule, MatButtonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.css',
 })
 export class SignupComponent {
   formBuilder = inject(FormBuilder);
   httpService = inject(HttpService);
   router = inject(Router);
   route = inject(ActivatedRoute);
-  toaster=inject(ToastrService);
+  toaster = inject(ToastrService);
   signupForm = this.formBuilder.group({
-    name: ['', [Validators.required]],
+    username: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
-    phone: ['', []],
-    age: [0, [Validators.required]],
-    salary: [0, [Validators.required]],
-    password: ['', [Validators.required]]
+    password: ['', [Validators.required]],
   });
-  employeeId!: number;
+  userId!: number;
 
   save() {
     console.log(this.signupForm.value);
-    const employee: IEmployee = {
-      name: this.signupForm.value.name!,
+    const user: IUser = {
+      username: this.signupForm.value.username!,
       email: this.signupForm.value.email!,
-      phone: this.signupForm.value.phone!,
-      age: this.signupForm.value.age!,  
-      salary: this.signupForm.value.salary!,
       password: this.signupForm.value.password!,
     };
-      this.httpService.createEmployee(employee).subscribe(() => {
-        console.log('success');
-        this.toaster.success("Signup sucessfully.");
-        this.router.navigateByUrl('/login');
-      });
-    }
+    this.httpService.createUser(user).subscribe(() => {
+      console.log('success');
+      this.toaster.success('Signup sucessfully.');
+      this.router.navigateByUrl('/login');
+    });
   }
+}

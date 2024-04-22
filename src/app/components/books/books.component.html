@@ -1,29 +1,45 @@
 <!-- Table -->
-  <div class="d-flex justify-content-end m-2">
-    <button class="btn btn-primary p-1 rounded fs-6 m-3 add-book"[routerLink]="'/book/form'">Add book</button>
-  </div>
-  
-  <div class="container mt-5 book-container">
-  <table class="table table-responsive table-hover text-center table-bordered border-dark text-capitalize">
-      <tr class="table-white table-active text-uppercase text-black">
-        <th>Book ID</th>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Publish Year</th>
-        <th>Action</th>
-      </tr>
-    
+<div class="d-flex justify-content-end m-1">
+  <button
+    class="btn btn-primary p-1 rounded fs-6 m-3 add-book"
+    [routerLink]="'/book/form'"
+  >
+    Add book
+  </button>
+</div>
+
+<div class="container mt-2 mb-5 book-container">
+  <table
+    class="table table-responsive table-hover text-center table-bordered border-dark text-capitalize"
+  >
+    <tr class="table-white table-active text-uppercase text-black">
+      <th>Book ID</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Publish Year</th>
+      <th>Action</th>
+    </tr>
+
     @for (item of (books$ | async); track item) {
-      <tr style="height: 40px;">
-        <td class="fs-12" >  {{item.id}}</td>
-        <td class="fs-12 fst-italic fw-medium"> {{item.title}}</td>
-        <td class="fs-12"> {{item.author}}</td>
-        <td class="fs-12"> {{item.publishYear}}</td>
-        <td class="fs-12">
-          <i class="fas fa-edit" [routerLink]="['/books/',item.id]" style="margin: 1px; color: blue;"></i>
-          <i class="fa fa-trash" aria-hidden="true" (click)="delete(item.id)" style="color: red;"></i>
-        </td>
-      </tr>
+    <tr style="height: 40px">
+      <td class="fs-12">{{ item.id }}</td>
+      <td class="fs-12 fst-italic fw-medium">{{ item.title }}</td>
+      <td class="fs-12">{{ item.author }}</td>
+      <td class="fs-12">{{ item.publishYear }}</td>
+      <td class="fs-12">
+        <i
+          class="fas fa-edit"
+          [routerLink]="['/books/', item.id]"
+          style="margin: 1px; color: blue"
+        ></i>
+        <i
+          class="fa fa-trash"
+          aria-hidden="true"
+          (click)="delete(item.id)"
+          style="color: red"
+        ></i>
+      </td>
+    </tr>
     }
   </table>
 </div>
