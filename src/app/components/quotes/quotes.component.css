@@ -1,25 +1,25 @@
 .quote-container {
-    margin: auto;
-    width: 96%;
-    font-size: 18px;
+  margin: auto;
+  width: 96%;
+  font-size: 18px;
 }
 @media only screen and (max-width: 768px) {
-    .add-quote {
-        margin-right: 30px;
-    }
-    .quote-container {
-        font-size: 15px;
-    }
+  .add-quote {
+    margin-right: 30px;
+  }
+  .quote-container {
+    font-size: 15px;
+  }
 }
 @media only screen and (max-width: 600px) {
-    .quote-container {
-        font-size: 14px;
-    }
+  .quote-container {
+    font-size: 14px;
+  }
 }
 @media only screen and (max-width: 300px) {
-    .quote-container {
-        width: 100%;
-        font-size: 12px;
-        overflow: hidden;
-    }
+  .quote-container {
+    width: 100%;
+    font-size: 12px;
+    overflow: hidden;
+  }
 }
