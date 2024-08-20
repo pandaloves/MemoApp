@@ -4,8 +4,10 @@ import { MatCardModule } from '@angular/material/card';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpService } from '../../http.service';
-import { Router, RouterLink, } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -15,29 +17,42 @@ import { ToastrService } from 'ngx-toastr';
     MatCardModule,
     ReactiveFormsModule,
     MatButtonModule,
-    RouterLink
+    RouterLink,
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
 })
 export class LoginComponent {
   builder = inject(FormBuilder);
   httpService = inject(HttpService);
   toaster = inject(ToastrService);
   router = inject(Router);
+
   loginForm = this.builder.group({
-    email: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]], // Added email validation
     password: ['', Validators.required],
   });
 
   onLogin() {
     const email = this.loginForm.value.email!;
     const password = this.loginForm.value.password!;
-    this.httpService.login(email, password).subscribe((result) => {
-      console.log(result);
-      localStorage.setItem('token', result.token);
-      this.router.navigateByUrl('/');
-      this.toaster.success('Login sucessfully');
-    });
+
+    this.httpService
+      .login(email, password)
+      .pipe(
+        catchError((error) => {
+          this.toaster.error(
+            'Login failed. Please check your credentials and try again.'
+          );
+          return of(null);
+        })
+      )
+      .subscribe((result) => {
+        if (result && result.token) {
+          console.log(result);
+          localStorage.setItem('token', result.token);
+          this.router.navigateByUrl('/books');
+          this.toaster.success('Login successful');
+        }
+      });
   }
 }

@@ -33,6 +33,11 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
   ) {}
 
   onSubmit() {
+    if (this.form.invalid) {
+      this.toasterService.error('Please fill out all required fields.');
+      return;
+    }
+
     this.quoteformSubscription = this.quoteService
       .addQuote(this.form.value)
       .subscribe({

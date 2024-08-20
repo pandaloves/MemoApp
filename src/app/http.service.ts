@@ -11,7 +11,7 @@ export class HttpService {
   constructor() {}
 
   createUser(user: IUser) {
-    return this.http.post(this.apiUrl + '/api/User', user);
+    return this.http.post(this.apiUrl + '/api/Auth/register', user);
   }
 
   login(email: string, password: string) {
