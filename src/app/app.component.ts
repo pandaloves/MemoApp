@@ -1,32 +1,65 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import {
+  RouterLink,
+  RouterOutlet,
+  Router,
+  NavigationEnd,
+} from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
+import { ThemeService } from './services/ThemeService'; // Ensure the path is correct
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, RouterLink, HeaderComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-title = 'MemoApp';
+export class AppComponent implements OnInit {
+  title = 'MemoApp';
+  darkMode = false;
+  showHeader: boolean = true;
 
-darkMode = false;
-constructor() {
-  this.dectectColorScheme();
-}
+  constructor(private router: Router, private themeService: ThemeService) {
+    // Subscribe to router events to detect route changes
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        // Check if the current route is login or signup
+        this.showHeader = !['/login', '/signup'].includes(
+          event.urlAfterRedirects
+        );
+      }
+    });
 
-dectectColorScheme() {
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    this.darkMode = true;
-    document.documentElement.setAttribute('data-theme', this.darkMode ? 'dark' : 'light');
+    this.detectColorScheme();
   }
-}
 
-toggleTheme() {
-  this.darkMode = !this.darkMode;
-  document.documentElement.setAttribute('data-theme', this.darkMode ? 'dark' : 'light');
-}
+  ngOnInit(): void {
+    this.themeService.darkMode$.subscribe((darkMode) => {
+      this.darkMode = darkMode;
+    });
+  }
+
+  detectColorScheme() {
+    if (
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      this.darkMode = true;
+      document.documentElement.setAttribute(
+        'data-theme',
+        this.darkMode ? 'dark' : 'light'
+      );
+    }
+  }
+
+  toggleTheme() {
+    this.darkMode = !this.darkMode;
+    document.documentElement.setAttribute(
+      'data-theme',
+      this.darkMode ? 'dark' : 'light'
+    );
+    this.themeService.toggleTheme();
+  }
 }

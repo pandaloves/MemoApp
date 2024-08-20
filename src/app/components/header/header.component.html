@@ -1,29 +1,25 @@
 <header>
-    <div class="container">
-        <div class="row">
-           <div class="col-md-3 col-sm-3 col-3">
-             <div class="log-container">
-                <img src="../../../assets/logo.png" alt="logo" class="logo">
-             </div> 
-             </div>
-            
-           <div class="col-md-9 col-sm-9 col-9 text-end">
-              <div class="menu-icon">
-                 <i class="{{menu_icon}}" (click)="openMenu()"></i>
-              </div>
-              <div class="desktop_menu" [class.mobile_menu] = "menuValue">
-                 <ul>
-                    <li [routerLink]= "'../books'" (click)="closeMenu()">
-                        Books
-                    </li>
-                    <li [routerLink]= "'../quotes'" (click)="closeMenu()">Quotes
-                    </li>
-                    <li [routerLink]= "'../login'" (click)="closeMenu()">
-                        Login
-                    </li> 
-                 </ul>
-              </div>
-           </div>
+  <div class="container">
+    <div class="d-flex flex-row justify-between">
+      <div class="d-flex flex-row gap-2">
+        <img src="../../../assets/logo.png" alt="logo" class="logo" />
+        <button class="toggle-btn" (click)="toggleTheme()">
+          {{ darkMode ? "🌞 Light" : "🌙 Dark" }}
+        </button>
+      </div>
+
+      <div class="col-md-9 col-sm-9 col-9 text-end">
+        <div class="menu-icon">
+          <i class="{{ menu_icon }}" (click)="openMenu()"></i>
         </div>
+        <div class="desktop_menu" [class.mobile_menu]="menuValue">
+          <ul>
+            <li routerLink="../books" (click)="closeMenu()">Books</li>
+            <li routerLink="../quotes" (click)="closeMenu()">Quotes</li>
+            <li (click)="logOut(); closeMenu()">Logout</li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
 </header>
