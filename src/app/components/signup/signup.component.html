@@ -1,6 +1,8 @@
 <div class="flex justify-center mt-20 mx-auto h-50">
   <div class="shadow w-25 p-6">
-    <h1 class="h1 mb-4 text-center">Signup</h1>
+    <h1 class="h1 mb-4 text-center">
+      Signup <em class="text-primary ml-1 fs-8">Happy Chat</em>
+    </h1>
 
     <form [formGroup]="signupForm" (ngSubmit)="save()">
       <div class="w-full flex flex-wrap">
@@ -35,7 +37,7 @@
           <input
             type="text"
             matInput
-            placeholder="Sal"
+            placeholder="********"
             formControlName="password"
           />
         </mat-form-field>
@@ -52,7 +54,7 @@
       </div>
 
       <div class="w-full flex justify-center btn">
-        <h4 class="h4">Don't have an account?</h4>
+        <h4 class="h4">Already had an account?</h4>
         <button
           mat-raised-button
           color="warn"
