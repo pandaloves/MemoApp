@@ -1,12 +1,28 @@
 header {
   padding: 10px;
   background: #044de0;
+  height: 110px;
 }
 .logo {
-  width: 70px;
-  height: 60px;
+  width: 100px;
+  height: 80px;
 }
 .logo:hover {
+  cursor: pointer;
+}
+.toggle-btn {
+  width: 120px;
+  height: 40px;
+  font-size: 19px;
+  border-radius: 2em;
+  background-color: rgb(252, 252, 252);
+  color: rgb(7, 7, 7);
+  margin-top: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: rgb(239, 239, 241);
   cursor: pointer;
 }
 .desktop_menu {
@@ -34,14 +50,18 @@ header {
   display: none;
 }
 @media screen and (min-width: 128px) and (max-width: 900px) {
+  .toggle-btn {
+    width: 200px;
+  }
   .desktop_menu {
     position: absolute;
-    right: -280px;
-    top: 40px;
+    right: -300px;
+    top: 80px;
     background: #044de0;
     width: 300px;
     height: 200px;
     z-index: 999;
+    padding-top: 30px;
   }
   .desktop_menu ul li {
     display: block;
@@ -55,25 +75,10 @@ header {
     color: white;
     font-size: 40px;
     padding: 10px;
+    margin-right: 22px;
   }
   .mobile_menu {
     right: 0;
     transition: 0.4s ease-in-out;
   }
-}
-
-.toggle-btn {
-  width: 100px;
-  height: 40px;
-  border-radius: 2em;
-  background-color: rgb(252, 252, 252);
-  color: rgb(7, 7, 7);
-  margin-left: 20px;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.toggle-btn:hover {
-  background-color: rgb(239, 239, 241);
-  cursor: pointer;
 }
