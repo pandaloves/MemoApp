@@ -4,7 +4,7 @@
       <div class="d-inline-flex gap-1">
         <img src="../../../assets/logo.png" alt="logo" class="logo" />
         <button class="toggle-btn" (click)="toggleTheme()">
-          {{ darkMode ? "🌞 Light" : "🌙 Dark" }}
+          {{ darkMode ? "🌞 Ljus" : "🌙 Mörk" }}
         </button>
       </div>
 
@@ -14,9 +14,9 @@
         </div>
         <div class="desktop_menu" [class.mobile_menu]="menuValue">
           <ul>
-            <li routerLink="../books" (click)="closeMenu()">Books</li>
-            <li routerLink="../quotes" (click)="closeMenu()">Quotes</li>
-            <li (click)="logOut(); closeMenu()">Logout</li>
+            <li routerLink="../books" (click)="closeMenu()">Mina böcker</li>
+            <li routerLink="../quotes" (click)="closeMenu()">Mina citat</li>
+            <li (click)="logOut(); closeMenu()">Logga ut</li>
           </ul>
         </div>
       </div>

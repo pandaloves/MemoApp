@@ -62,7 +62,7 @@ export class BookFormComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.form.invalid) {
-      this.toasterService.error('Please fill out all required fields.');
+      this.toasterService.error('Vänligen fyll i alla obligatoriska fält.');
       return;
     }
 
@@ -72,7 +72,7 @@ export class BookFormComponent implements OnInit, OnDestroy {
         .subscribe({
           next: (response) => {
             console.log(response);
-            this.toasterService.success('Book successfully added!');
+            this.toasterService.success('Boken har lagts till!');
             this.router.navigateByUrl('/books');
           },
           error: (err) => {
@@ -84,7 +84,7 @@ export class BookFormComponent implements OnInit, OnDestroy {
         .editBook(this.id, this.form.value)
         .subscribe({
           next: (value) => {
-            this.toasterService.success('Book successfully edited!');
+            this.toasterService.success('Boken har redigerats!');
             this.router.navigateByUrl('/books');
             console.log(value);
           },

@@ -26,7 +26,7 @@ export class QuotesComponent implements OnInit {
     this.quoteService.deleteQuote(id).subscribe({
       next: (response) => {
         console.log(response);
-        this.toaster.success('Quote successfully deleted!');
+        this.toaster.success('Citatet har raderats!');
         this.getQuotes();
       },
     });

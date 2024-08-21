@@ -34,7 +34,7 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.form.invalid) {
-      this.toasterService.error('Please fill out all required fields.');
+      this.toasterService.error('Vänligen fyll i alla obligatoriska fält.');
       return;
     }
 
@@ -43,7 +43,7 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (response) => {
           console.log(response);
-          this.toasterService.success('Quote successfully added!');
+          this.toasterService.success('Citatet har lagts till!');
           this.router.navigateByUrl('/quotes');
         },
         error: (err) => {
