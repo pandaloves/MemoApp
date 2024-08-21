@@ -33,6 +33,6 @@ body {
 }
 
 [data-theme="dark"] {
-  --bg-color: rgb(49, 47, 47);
+  --bg-color: black;
   --text-color: white;
 }
