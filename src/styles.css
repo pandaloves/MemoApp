@@ -28,11 +28,11 @@ body {
 }
 
 :root {
-  --bg-color: white;
+  --bg-color: rgb(255, 255, 255);
   --text-color: black;
 }
 
 [data-theme="dark"] {
-  --bg-color: rgb(90, 86, 86);
+  --bg-color: black;
   --text-color: white;
 }
