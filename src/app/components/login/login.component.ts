@@ -41,7 +41,7 @@ export class LoginComponent {
       .pipe(
         catchError((error) => {
           this.toaster.error(
-            'Login failed. Please check your credentials and try again.'
+            'Inloggningen misslyckades. Kontrollera dina uppgifter och försök igen.'
           );
           return of(null);
         })
@@ -51,7 +51,7 @@ export class LoginComponent {
           console.log(result);
           localStorage.setItem('token', result.token);
           this.router.navigateByUrl('/books');
-          this.toaster.success('Login successful');
+          this.toaster.success('Logga in framgångsrikt!');
         }
       });
   }

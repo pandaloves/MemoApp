@@ -51,12 +51,12 @@ export class SignupComponent {
       .pipe(
         catchError((error) => {
           console.error('Signup error', error);
-          this.toaster.error('Signup failed. Please try again.');
+          this.toaster.error('Registreringen misslyckades. Försök igen.');
           return of(null);
         })
       )
       .subscribe(() => {
-        this.toaster.success('Signup successfully.');
+        this.toaster.success('Registreringen lyckades.');
         this.router.navigateByUrl('/login');
       });
   }
