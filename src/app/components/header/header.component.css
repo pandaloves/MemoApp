@@ -7,9 +7,6 @@ header {
   width: 100px;
   height: 80px;
 }
-.logo:hover {
-  cursor: pointer;
-}
 .toggle-btn {
   width: 120px;
   height: 40px;

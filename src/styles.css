@@ -30,28 +30,9 @@ body {
 :root {
   --bg-color: white;
   --text-color: black;
-  --table-bg-color: white;
-  --table-text-color: black;
-  --table-border-color: #ddd;
 }
 
 [data-theme="dark"] {
   --bg-color: rgb(90, 86, 86);
   --text-color: white;
-  --table-bg-color: #333;
-  --table-text-color: #f5f5f5;
-  --table-border-color: #666;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: var(--table-bg-color);
-  color: var(--table-text-color);
-}
-
-th,
-td {
-  padding: 8px;
-  border: 1px solid var(--table-border-color);
 }
