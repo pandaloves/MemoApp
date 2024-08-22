@@ -29,8 +29,10 @@ export class LoginComponent {
   toaster = inject(ToastrService);
   router = inject(Router);
 
+  showPassword = false;
+
   loginForm = this.builder.group({
-    email: ['', [Validators.required, Validators.email]], // Added email validation
+    email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
   });
 
@@ -56,5 +58,10 @@ export class LoginComponent {
           this.toaster.success('Logga in framgångsrikt!');
         }
       });
+  }
+
+  toggleShowPassword(event: Event) {
+    event.preventDefault();
+    this.showPassword = !this.showPassword;
   }
 }
