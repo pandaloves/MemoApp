@@ -15,6 +15,9 @@
             formControlName="username"
             required
           />
+          <mat-error *ngIf="signupForm.get('username')?.hasError('required')">
+            Användarnamn är obligatoriskt.
+          </mat-error>
         </mat-form-field>
       </div>
 
@@ -28,6 +31,12 @@
             formControlName="email"
             required
           />
+          <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
+            E-post är obligatoriskt.
+          </mat-error>
+          <mat-error *ngIf="signupForm.get('email')?.hasError('email')">
+            Ogiltig e-postadress.
+          </mat-error>
         </mat-form-field>
       </div>
 
@@ -40,6 +49,21 @@
             placeholder="********"
             formControlName="password"
           />
+          <mat-error *ngIf="signupForm.get('password')?.hasError('minlength')">
+            Lösenordet måste vara minst 6 tecken långt.
+          </mat-error>
+          <mat-error *ngIf="signupForm.get('password')?.hasError('uppercase')">
+            Lösenordet måste innehålla minst en versal.
+          </mat-error>
+          <mat-error *ngIf="signupForm.get('password')?.hasError('lowercase')">
+            Lösenordet måste innehålla minst en gemen bokstav.
+          </mat-error>
+          <mat-error *ngIf="signupForm.get('password')?.hasError('digit')">
+            Lösenordet måste innehålla minst en siffra.
+          </mat-error>
+          <mat-error *ngIf="signupForm.get('password')?.hasError('special')">
+            Lösenordet måste innehålla minst ett specialtecken.
+          </mat-error>
         </mat-form-field>
       </div>
       <div class="flex justify-center">

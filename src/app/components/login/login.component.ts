@@ -8,6 +8,7 @@ import { Router, RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ import { of } from 'rxjs';
     ReactiveFormsModule,
     MatButtonModule,
     RouterLink,
+    CommonModule,
   ],
   templateUrl: './login.component.html',
 })

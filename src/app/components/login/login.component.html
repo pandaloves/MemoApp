@@ -14,6 +14,12 @@
             formControlName="email"
             required
           />
+          <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+            E-post är obligatoriskt.
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+            Ogiltig e-postadress.
+          </mat-error>
         </mat-form-field>
       </div>
 
@@ -26,6 +32,9 @@
             placeholder="********"
             formControlName="password"
           />
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            Lösenord är obligatoriskt.
+          </mat-error>
         </mat-form-field>
       </div>
       <div class="flex justify-center">
