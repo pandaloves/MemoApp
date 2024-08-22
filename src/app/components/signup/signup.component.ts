@@ -14,7 +14,6 @@ import { ToastrService } from 'ngx-toastr';
 import { RouterLink } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { passwordValidator } from '../../validator/password.validator';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -39,7 +38,7 @@ export class SignupComponent {
   signupForm = this.formBuilder.group({
     username: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, passwordValidator]],
+    password: ['', [Validators.required]],
   });
 
   save() {

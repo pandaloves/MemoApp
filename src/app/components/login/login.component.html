@@ -26,26 +26,14 @@
       <div class="w-full flex flex-wrap">
         <mat-form-field class="w-full">
           <mat-label>Lösenord</mat-label>
-          <div class="relative m-1">
-            <input
-              matInput
-              [type]="showPassword ? 'text' : 'password'"
-              formControlName="password"
-              placeholder="********"
-              required
-            />
-            <button
-              class="btn btn-outline absolute inset-y-0 right-0 flex items-center pb-4"
-              (click)="toggleShowPassword($event)"
-            >
-              <i
-                class="fas"
-                [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
-              ></i>
-            </button>
-          </div>
+          <input
+            type="text"
+            matInput
+            placeholder="********"
+            formControlName="password"
+          />
           <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
-            Lösenord är obligatoriskt.
+            E-post är obligatoriskt.
           </mat-error>
         </mat-form-field>
       </div>
