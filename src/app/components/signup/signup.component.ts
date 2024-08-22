@@ -49,6 +49,7 @@ export class SignupComponent {
     return this.signupForm.get('password');
   }
 
+  showPassword: boolean = false;
   save() {
     const user: IUser = {
       username: this.signupForm.value.username!,
