@@ -1,46 +1,46 @@
 <div class="flex justify-content-center mt-20 mx-auto">
-  <mat-card class="shadow w-25 p-6 h-50">
+  <div class="shadow w-25 p-6 h-50">
     <h1 class="h1 mb-4 text-center">
       Logga in <em class="text-primary ml-1 fs-8">Happy Chat</em>
     </h1>
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-      <div>
+      <div class="w-full flex flex-wrap">
         <mat-form-field class="w-full">
           <mat-label>E-post</mat-label>
           <input
+            type="text"
             matInput
-            type="email"
-            formControlName="email"
             placeholder="E-post"
+            formControlName="email"
             required
           />
         </mat-form-field>
       </div>
-      <div>
+
+      <div class="w-full flex flex-wrap">
         <mat-form-field class="w-full">
           <mat-label>Lösenord</mat-label>
           <input
+            type="text"
             matInput
-            type="password"
-            formControlName="password"
             placeholder="********"
-            required
+            formControlName="password"
           />
         </mat-form-field>
       </div>
-      <div class="w-full flex justify-center btn">
+      <div class="flex justify-center">
         <button
           mat-raised-button
           color="primary"
-          type="submit"
           class="btn m-2 w-full"
           [disabled]="!loginForm.valid"
         >
           Logga in
         </button>
       </div>
+
       <div class="w-full flex justify-center btn">
-        <h4 class="h4 text-muted">Har du inget konto?</h4>
+        <h4 class="h4">Har du inget konto?</h4>
         <button
           mat-raised-button
           color="warn"
@@ -52,5 +52,5 @@
         </button>
       </div>
     </form>
-  </mat-card>
+  </div>
 </div>

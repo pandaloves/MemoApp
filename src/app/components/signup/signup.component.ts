@@ -51,13 +51,26 @@ export class SignupComponent {
       .pipe(
         catchError((error) => {
           console.error('Signup error', error);
-          this.toaster.error('Registreringen misslyckades. Försök igen.');
+
+          if (
+            error.status === 400 &&
+            error.error.error === 'Email has already existed!'
+          ) {
+            this.toaster.error(
+              'E-postadressen finns redan. Försök med en annan.'
+            );
+          } else {
+            this.toaster.error('Registreringen misslyckades. Försök igen.');
+          }
+
           return of(null);
         })
       )
-      .subscribe(() => {
-        this.toaster.success('Registreringen lyckades.');
-        this.router.navigateByUrl('/login');
+      .subscribe((result) => {
+        if (result) {
+          this.toaster.success('Registreringen lyckades.');
+          this.router.navigateByUrl('/login');
+        }
       });
   }
 }
