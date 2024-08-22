@@ -49,21 +49,45 @@
             placeholder="********"
             formControlName="password"
           />
-          <mat-error *ngIf="signupForm.get('password')?.hasError('minlength')">
-            Lösenordet måste vara minst 6 tecken långt.
-          </mat-error>
-          <mat-error *ngIf="signupForm.get('password')?.hasError('uppercase')">
-            Lösenordet måste innehålla minst en versal.
-          </mat-error>
-          <mat-error *ngIf="signupForm.get('password')?.hasError('lowercase')">
-            Lösenordet måste innehålla minst en gemen bokstav.
-          </mat-error>
-          <mat-error *ngIf="signupForm.get('password')?.hasError('digit')">
-            Lösenordet måste innehålla minst en siffra.
-          </mat-error>
-          <mat-error *ngIf="signupForm.get('password')?.hasError('special')">
-            Lösenordet måste innehålla minst ett specialtecken.
-          </mat-error>
+          <div class="text-red-400 text-sm" *ngIf="passwordFormField?.dirty">
+            <span
+              class="block"
+              [ngClass]="{
+                'text-primary': passwordFormField?.value?.match('^(?=.*[A-Z])')
+              }"
+              >Minst en versal.</span
+            >
+            <span
+              class="block"
+              [ngClass]="{
+                'text-primary': passwordFormField?.value?.match('(?=.*[a-z])')
+              }"
+              >Minst en gemen bokstav.</span
+            >
+            <span
+              class="block"
+              [ngClass]="{
+                'text-primary': passwordFormField?.value?.match('(.*[0-9].*)')
+              }"
+              >Minst en siffra.</span
+            >
+            <span
+              class="block"
+              [ngClass]="{
+                'text-primary':
+                  passwordFormField?.value?.match('(?=.*[!@#$%^&*])')
+              }"
+              >Minst ett specialtecken.</span
+            >
+            <span
+              class="block"
+              [ngClass]="{
+                'text-primary': passwordFormField?.value?.match('.{6,}')
+              }"
+            >
+              Minst 6 tecken långt.</span
+            >
+          </div>
         </mat-form-field>
       </div>
       <div class="flex justify-center">

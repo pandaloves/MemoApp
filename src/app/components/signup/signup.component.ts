@@ -15,6 +15,7 @@ import { RouterLink } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { StrongPasswordRegx } from '../../utils/StrongPasswordRegx';
 
 @Component({
   selector: 'app-signup',
@@ -38,8 +39,15 @@ export class SignupComponent {
   signupForm = this.formBuilder.group({
     username: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]],
+    password: [
+      '',
+      [Validators.required, Validators.pattern(StrongPasswordRegx)],
+    ],
   });
+
+  get passwordFormField() {
+    return this.signupForm.get('password');
+  }
 
   save() {
     const user: IUser = {
