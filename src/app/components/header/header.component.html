@@ -1,8 +1,10 @@
 <header>
   <div class="container">
-    <div class="d-flex flex-row justify-between p-2">
-      <div class="d-inline-flex gap-1">
-        <img src="../../../assets/logo.png" alt="logo" class="logo" />
+    <div class="d-flex flex-row justify-between">
+      <div class="theme-container flex flex-row gap-1 align-items-center">
+        <p class="username">
+          Hej, <em class="text-yellow-400">{{ username }} </em>!
+        </p>
         <button class="toggle-btn" (click)="toggleTheme()">
           {{ darkMode ? "🌞 Ljus" : "🌙 Mörk" }}
         </button>

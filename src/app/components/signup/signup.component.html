@@ -1,5 +1,7 @@
 <div class="flex justify-content-center mt-20 mx-auto">
-  <div class="shadow w-25 p-6 h-50">
+  <div
+    class="shadow col-12 col-sm-6 col-md-8 col-lg-6 col-xl-4 col-xxl-3 p-6 h-50"
+  >
     <h1 class="h1 mb-4 text-center">
       Registrera<em class="text-primary ml-1 fs-8">MemoApp</em>
     </h1>
@@ -43,12 +45,12 @@
       <div class="w-full flex flex-wrap">
         <mat-form-field class="w-full">
           <mat-label>Lösenord</mat-label>
-            <input
-              type="text"
-              matInput
-              placeholder="Lösenord"
-              formControlName="password"
-            />
+          <input
+            type="text"
+            matInput
+            placeholder="Lösenord"
+            formControlName="password"
+          />
           <div class="text-red-400 text-sm" *ngIf="passwordFormField?.dirty">
             <span
               class="block"

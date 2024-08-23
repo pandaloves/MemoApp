@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { ThemeService } from '../../services/ThemeService'; // Ensure this path is correct
+import { jwtDecode } from 'jwt-decode';
+import { ThemeService } from '../../services/ThemeService';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +14,7 @@ export class HeaderComponent implements OnInit {
   menuValue: boolean = false;
   menu_icon: string = 'bi bi-list';
   darkMode = false;
+  username: string | null = null;
 
   constructor(private themeService: ThemeService) {}
 
@@ -20,6 +22,8 @@ export class HeaderComponent implements OnInit {
     this.themeService.darkMode$.subscribe((darkMode) => {
       this.darkMode = darkMode;
     });
+
+    this.getUsernameFromToken();
   }
 
   openMenu() {
@@ -30,6 +34,15 @@ export class HeaderComponent implements OnInit {
   closeMenu() {
     this.menuValue = false;
     this.menu_icon = 'bi bi-list';
+  }
+
+  getUsernameFromToken() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decodedToken: any = jwtDecode(token);
+      this.username = decodedToken.Username;
+      console.log(this.username);
+    }
   }
 
   logOut() {
