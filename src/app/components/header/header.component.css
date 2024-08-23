@@ -3,6 +3,9 @@ header {
   height: 110px;
   display: flex;
   align-items: center;
+  top: 0;
+  width: 100%;
+  min-width: 100%;
 }
 
 .logo {
