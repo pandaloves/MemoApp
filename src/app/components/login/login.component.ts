@@ -30,7 +30,7 @@ export class LoginComponent {
   router = inject(Router);
 
   loginForm = this.builder.group({
-    email: ['', [Validators.required, Validators.email]], // Added email validation
+    email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
   });
 
@@ -50,7 +50,6 @@ export class LoginComponent {
       )
       .subscribe((result) => {
         if (result && result.token) {
-          console.log(result);
           localStorage.setItem('token', result.token);
           this.router.navigateByUrl('/books');
           this.toaster.success('Logga in framgångsrikt!');
