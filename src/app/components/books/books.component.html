@@ -1,5 +1,5 @@
 <div class="container mt-5 min-vh-100">
-  <div class="d-flex justify-content-end m-1">
+  <div class="d-flex justify-content-end mb-3">
     <button
       class="btn btn-primary px-4 py-2 rounded m-3 add-book"
       [routerLink]="'/book/form'"
@@ -24,12 +24,12 @@
         <td class="text-center">{{ item.title }}</td>
         <td class="text-center">{{ item.author }}</td>
         <td class="text-center">{{ item.publishYear }}</td>
-        <td class="flex justify-center gap-3">
-          <button class="btn btn-primary btn-sm">
+        <td class="text-center">
+          <button class="btn btn-primary btn-sm mr-1 mt-sm-1">
             <i class="fas fa-edit" [routerLink]="['/books/', item.id]"></i>
           </button>
 
-          <button class="btn btn-danger btn-sm">
+          <button class="btn btn-danger btn-sm mt-1">
             <i
               class="fa fa-trash"
               aria-hidden="true"

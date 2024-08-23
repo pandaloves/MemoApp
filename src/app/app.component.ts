@@ -22,10 +22,10 @@ export class AppComponent implements OnInit {
   showHeader: boolean = true;
 
   constructor(private router: Router, private themeService: ThemeService) {
-    // Subscribe to router events to detect route changes
+  
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        // Check if the current route is login or signup
+       
         this.showHeader = !['/login', '/signup'].includes(
           event.urlAfterRedirects
         );

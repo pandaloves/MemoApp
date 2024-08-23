@@ -12,7 +12,7 @@
         <div class="menu-icon">
           <i class="{{ menu_icon }}" (click)="openMenu()"></i>
         </div>
-        <div class="desktop_menu" [class.mobile_menu]="menuValue">
+        <div class="menu" [class.mobile_menu]="menuValue">
           <ul>
             <li routerLink="../books" (click)="closeMenu()">Mina böcker</li>
             <li routerLink="../quotes" (click)="closeMenu()">Mina citat</li>
