@@ -7,12 +7,19 @@ import {
   NavigationEnd,
 } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
-import { ThemeService } from './services/ThemeService'; // Ensure the path is correct
+import { ThemeService } from './services/ThemeService';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, HeaderComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    RouterLink,
+    HeaderComponent,
+    FooterComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
@@ -20,13 +27,15 @@ export class AppComponent implements OnInit {
   title = 'MemoApp';
   darkMode = false;
   showHeader: boolean = true;
+  showFooter: boolean = true;
 
   constructor(private router: Router, private themeService: ThemeService) {
-  
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-       
         this.showHeader = !['/login', '/signup'].includes(
+          event.urlAfterRedirects
+        );
+        this.showFooter = !['/login', '/signup'].includes(
           event.urlAfterRedirects
         );
       }
