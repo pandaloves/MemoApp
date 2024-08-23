@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   standalone: true,
   imports: [AsyncPipe, RouterLink],
   templateUrl: './quotes.component.html',
+  styleUrls: ['./quotes.component.css'],
 })
 export class QuotesComponent implements OnInit {
   quotes$!: Observable<Quote[]>;

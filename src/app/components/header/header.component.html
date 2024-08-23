@@ -1,27 +1,24 @@
-<header>
-  <div class="container">
-    <div class="d-flex flex-row justify-between">
-      <div class="theme-container flex flex-row align-items-center">
-        <p class="username">
-          Hej, <em class="text-yellow-400">{{ username }} </em>!
-        </p>
-        <button class="toggle-btn" (click)="toggleTheme()">
-          {{ darkMode ? "🌞 Ljus" : "🌙 Mörk" }}
-        </button>
-      </div>
-
-      <div class="col-md-9 col-sm-9 col-9 text-end">
-        <div class="menu-icon">
-          <i class="{{ menu_icon }}" (click)="openMenu()"></i>
-        </div>
-        <div class="menu" [class.mobile_menu]="menuValue">
-          <ul>
-            <li routerLink="../books" (click)="closeMenu()">Mina böcker</li>
-            <li routerLink="../quotes" (click)="closeMenu()">Mina citat</li>
-            <li (click)="logOut(); closeMenu()">Logga ut</li>
-          </ul>
-        </div>
-      </div>
+<header
+  class="d-flex flex-row align-items-center justify-content-between px-10 py-auto"
+>
+  <div class="theme-container flex flex-row align-items-center">
+    <p class="username">
+      Hej, <em class="text-yellow-400">{{ username }} </em>!
+    </p>
+    <button class="toggle-btn" (click)="toggleTheme()">
+      {{ darkMode ? "🌞 Ljus" : "🌙 Mörk" }}
+    </button>
+  </div>
+  <div class="text-start">
+    <div class="menu-icon">
+      <i class="{{ menu_icon }}" (click)="openMenu()"></i>
+    </div>
+    <div class="menu" [class.mobile_menu]="menuValue">
+      <ul>
+        <li routerLink="../books" (click)="closeMenu()">Mina böcker</li>
+        <li routerLink="../quotes" (click)="closeMenu()">Mina citat</li>
+        <li (click)="logOut(); closeMenu()">Logga ut</li>
+      </ul>
     </div>
   </div>
 </header>
