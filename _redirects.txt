@@ -1,2 +1,1 @@
-http://worthashot.netlify.com/* https://worthashot.netlify.com/:splat 301!
 /* /index.html 200
