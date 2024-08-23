@@ -1,12 +1,25 @@
 header {
-  padding: 10px;
   background: #044de0;
   height: 110px;
+  display: flex;
+  align-items: center;
 }
+
 .logo {
   width: 100px;
   height: 80px;
 }
+
+.username {
+  margin: 0;
+  padding: 0;
+  width: 80px;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  line-height: 1.2;
+}
+
 .toggle-btn {
   width: 120px;
   height: 40px;
@@ -14,7 +27,7 @@ header {
   border-radius: 2em;
   background-color: rgb(252, 252, 252);
   color: rgb(7, 7, 7);
-  margin-top: 18px;
+  margin-left: 20px;
   transition: background-color 0.3s ease;
 }
 
@@ -22,13 +35,16 @@ header {
   background-color: rgb(239, 239, 241);
   cursor: pointer;
 }
+
 .menu {
   margin-top: 24px;
 }
+
 .menu ul {
   padding: 0;
   margin: 0;
 }
+
 .menu ul li {
   list-style-type: none;
   color: white;
@@ -36,6 +52,7 @@ header {
   font-size: 18px;
   margin-left: 26px;
 }
+
 .menu ul li:hover {
   font-size: 19px;
   font-weight: bold;
@@ -43,13 +60,16 @@ header {
   color: rgb(238, 217, 25);
   transition: 0.4s ease-in-out;
 }
+
 .menu-icon {
   display: none;
 }
+
 @media screen and (min-width: 128px) and (max-width: 900px) {
   .toggle-btn {
-    width: 200px;
+    width: 120px;
   }
+
   .menu {
     position: absolute;
     right: -300px;
@@ -60,6 +80,7 @@ header {
     z-index: 999;
     padding-top: 30px;
   }
+
   .menu ul li {
     display: block;
     text-align: left;
@@ -67,13 +88,15 @@ header {
     padding: 10px 0 10px 26px;
     border-bottom: 1px solid grey;
   }
+
   .menu-icon {
     display: block;
     color: white;
     font-size: 40px;
     padding: 10px;
-    margin-right: 22px;
+    margin-right: 45px;
   }
+
   .mobile_menu {
     right: 0;
     transition: 0.4s ease-in-out;
