@@ -41,8 +41,7 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
     this.quoteformSubscription = this.quoteService
       .addQuote(this.form.value)
       .subscribe({
-        next: (response) => {
-          console.log(response);
+        next: () => {
           this.toasterService.success('Citatet har lagts till!');
           this.router.navigateByUrl('/quotes');
         },
@@ -69,13 +68,11 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
 
     this.paramsSubscription = this.activatedRouter.params.subscribe({
       next: (response) => {
-        console.log(response['id']);
         let id = response['id'];
         this.id = id;
         if (!id) return;
         this.quoteService.getQuote(id).subscribe({
-          next: (response) => {
-            console.log(response);
+          next: () => {
             this.form.patchValue(response);
           },
           error: (err) => {

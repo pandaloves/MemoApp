@@ -7,16 +7,17 @@ header {
   width: 100%;
   min-width: 100%;
 }
-
+.theme-container {
+  width: 250px;
+}
 .logo {
   width: 100px;
   height: 80px;
 }
-
 .username {
   margin: 0;
   padding: 0;
-  width: 80px;
+  width: 160px;
   font-size: 17px;
   font-weight: bold;
   color: white;
@@ -66,11 +67,19 @@ header {
 
 .menu-icon {
   display: none;
+  font-size: 40px;
+  margin-left: 200px;
 }
 
 @media screen and (min-width: 128px) and (max-width: 900px) {
-  .toggle-btn {
+  .theme-container {
+    width: 230px;
+  }
+  .username {
     width: 120px;
+  }
+  .toggle-btn {
+    width: 110px;
   }
 
   .menu {
@@ -95,9 +104,8 @@ header {
   .menu-icon {
     display: block;
     color: white;
-    font-size: 40px;
-    padding: 10px;
-    margin-right: 45px;
+    padding-right: 25px;
+    margin-right: 46px;
   }
 
   .mobile_menu {

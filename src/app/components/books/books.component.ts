@@ -23,7 +23,7 @@ export class BooksComponent implements OnInit {
 
   delete(id: number) {
     this.bookService.deleteBook(id).subscribe({
-      next: (response) => {
+      next: () => {
         this.toaster.success('Boken har raderats!');
         this.getBooks();
       },

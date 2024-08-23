@@ -70,8 +70,7 @@ export class BookFormComponent implements OnInit, OnDestroy {
       this.bookformSubscription = this.bookService
         .addBook(this.form.value)
         .subscribe({
-          next: (response) => {
-            console.log(response);
+          next: () => {
             this.toasterService.success('Boken har lagts till!');
             this.router.navigateByUrl('/books');
           },
@@ -83,10 +82,9 @@ export class BookFormComponent implements OnInit, OnDestroy {
       this.bookformSubscription = this.bookService
         .editBook(this.id, this.form.value)
         .subscribe({
-          next: (value) => {
+          next: () => {
             this.toasterService.success('Boken har redigerats!');
             this.router.navigateByUrl('/books');
-            console.log(value);
           },
           error: (err) => {
             console.log(err);
