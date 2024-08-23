@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   standalone: true,
   imports: [AsyncPipe, RouterLink],
   templateUrl: './books.component.html',
+  styleUrls: ['./books.component.css'],
 })
 export class BooksComponent implements OnInit {
   books$!: Observable<Book[]>;
