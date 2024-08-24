@@ -19,8 +19,7 @@
     </thead>
     <tbody>
       <!-- Display the list of books -->
-      @for (item of (books$ | async); track item) {
-      <tr>
+      <tr *ngFor="let item of books$ | async; trackBy: trackById">
         <td class="text-center">{{ item.id }}</td>
         <td class="text-center">{{ item.title }}</td>
         <td class="text-center">{{ item.author }}</td>
@@ -30,7 +29,7 @@
           <button class="btn btn-primary btn-sm mr-1 mt-sm-1">
             <i class="fas fa-edit" [routerLink]="['/books/', item.id]"></i>
           </button>
-          
+
           <!-- Button to delete the book -->
           <button class="btn btn-danger btn-sm mt-1">
             <i
@@ -41,7 +40,6 @@
           </button>
         </td>
       </tr>
-      }
     </tbody>
   </table>
 </div>

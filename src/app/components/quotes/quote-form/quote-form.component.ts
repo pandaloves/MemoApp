@@ -10,11 +10,12 @@ import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 import { QuotesService } from '../../../services/quotes.service';
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-quote-form',
   standalone: true,
-  imports: [ReactiveFormsModule, JsonPipe, RouterLink],
+  imports: [ReactiveFormsModule, JsonPipe, RouterLink, CommonModule],
   templateUrl: './quote-form.component.html',
 })
 export class QuoteFormComponent implements OnInit, OnDestroy {

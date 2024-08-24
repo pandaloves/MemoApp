@@ -13,24 +13,31 @@
       placeholder="författare"
       required
     />
-    @if(form.controls['author'].errors && form.controls['author'].touched) {
-    <h5 class="h5 text-danger m-1">Författare krävs.</h5>
-    }
+
+    <h5
+      *ngIf="form.controls['author'].errors && form.controls['author'].touched"
+      class="h5 text-danger m-1"
+    >
+      Författare krävs.
+    </h5>
 
     <textarea
       formControlName="content"
       class="form-control form-control-lg m-2 w-full"
-      type="text"
       placeholder="innehåll"
       rows="4"
-      cols="60"
       required
+    ></textarea>
+
+    <h5
+      *ngIf="
+        form.controls['content'].errors && form.controls['content'].touched
+      "
+      class="h5 text-danger m-1"
     >
-        @if(form.controls['content'].errors && form.controls['content'].touched) {
-            <h5 class="h-5 text-danger m-1">Innehållet krävs.</h5>
-            }
-        </textarea
-    >
+      Innehållet krävs.
+    </h5>
+
     <div class="mt-4 d-flex flex-row gap-4 justify-center">
       <button
         type="submit"

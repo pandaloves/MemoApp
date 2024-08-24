@@ -5,11 +5,12 @@ import { Quote } from '../../types/quote';
 import { AsyncPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-quotes',
   standalone: true,
-  imports: [AsyncPipe, RouterLink],
+  imports: [AsyncPipe, RouterLink, CommonModule],
   templateUrl: './quotes.component.html',
   styleUrls: ['./quotes.component.css'],
 })
@@ -21,6 +22,11 @@ export class QuotesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getQuotes();
+  }
+
+  // Method to track items by ID
+  trackById(index: number, item: Quote): number {
+    return item.id;
   }
 
   // Delete a quote by ID
