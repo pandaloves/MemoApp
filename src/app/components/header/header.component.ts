@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 import { ThemeService } from '../../services/ThemeService';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +16,7 @@ export class HeaderComponent implements OnInit {
   menu_icon: string = 'bi bi-list';
   darkMode = false;
   username: string | null = null;
+  toaster = inject(ToastrService);
 
   constructor(private themeService: ThemeService) {}
 
@@ -26,29 +28,43 @@ export class HeaderComponent implements OnInit {
     this.getUsernameFromToken();
   }
 
+  // Open the menu
   openMenu() {
     this.menuValue = !this.menuValue;
     this.menu_icon = this.menuValue ? 'bi bi-x' : 'bi bi-list';
   }
 
+  // Close the menu
   closeMenu() {
     this.menuValue = false;
     this.menu_icon = 'bi bi-list';
   }
 
+  // Retrieve the username from the token
   getUsernameFromToken() {
     const token = localStorage.getItem('token');
     if (token) {
-      const decodedToken: any = jwtDecode(token);
-      this.username = decodedToken.Username;
+      try {
+        const decodedToken: any = jwtDecode(token);
+        this.username = decodedToken.Username;
+      } catch (error) {
+        console.error('Failed to decode token:', error);
+        this.username = null;
+      }
     }
   }
 
+  // Log out the user
   logOut() {
     localStorage.removeItem('token');
-    window.location.href = '/login';
+    this.toaster.error('Loggat ut framgångsrikt!');
+
+    setTimeout(() => {
+      window.location.href = '/login';
+    }, 2000);
   }
 
+  // Toggle the theme
   toggleTheme() {
     this.themeService.toggleTheme();
   }

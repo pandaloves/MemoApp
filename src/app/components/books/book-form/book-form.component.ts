@@ -60,6 +60,7 @@ export class BookFormComponent implements OnInit, OnDestroy {
     });
   }
 
+  // Submit a book
   onSubmit() {
     if (this.form.invalid) {
       this.toasterService.error('Vänligen fyll i alla obligatoriska fält.');

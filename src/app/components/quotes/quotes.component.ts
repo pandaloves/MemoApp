@@ -23,6 +23,7 @@ export class QuotesComponent implements OnInit {
     this.getQuotes();
   }
 
+  // Delete a quote by ID
   delete(id: number) {
     this.quoteService.deleteQuote(id).subscribe({
       next: () => {
@@ -32,6 +33,7 @@ export class QuotesComponent implements OnInit {
     });
   }
 
+  // Fetch the list of quotes
   private getQuotes(): void {
     this.quotes$ = this.quoteService.getQuotes();
   }

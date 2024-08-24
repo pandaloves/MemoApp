@@ -32,6 +32,7 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
     private toasterService: ToastrService
   ) {}
 
+  // Handle the quote form submission
   onSubmit() {
     if (this.form.invalid) {
       this.toasterService.error('Vänligen fyll i alla obligatoriska fält.');
@@ -71,6 +72,8 @@ export class QuoteFormComponent implements OnInit, OnDestroy {
         let id = response['id'];
         this.id = id;
         if (!id) return;
+
+        // Fetch the quote data using the ID
         this.quoteService.getQuote(id).subscribe({
           next: () => {
             this.form.patchValue(response);

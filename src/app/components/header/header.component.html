@@ -1,6 +1,7 @@
 <header
   class="d-flex flex-row align-items-center justify-content-between px-10 py-auto"
 >
+  <!-- Container for the theme toggle button and user greeting -->
   <div class="theme-container flex flex-row align-items-center">
     <p class="username">
       Hej, <em class="text-yellow-400">{{ username }} </em>!
@@ -9,10 +10,14 @@
       {{ darkMode ? "🌞 Ljus" : "🌙 Mörk" }}
     </button>
   </div>
+
+  <!-- Container for the menu icon and the navigation menu -->
   <div class="text-start">
     <div class="menu-icon">
       <i class="{{ menu_icon }}" (click)="openMenu()"></i>
     </div>
+
+    <!-- Navigation menu container -->
     <div class="menu" [class.mobile_menu]="menuValue">
       <ul>
         <li routerLink="../books" (click)="closeMenu()">Mina böcker</li>
