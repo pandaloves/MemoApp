@@ -10,7 +10,7 @@
           <input
             type="text"
             matInput
-            placeholder="E-post"
+            placeholder="example@mail.com"
             formControlName="email"
             required
           />
@@ -29,7 +29,7 @@
           <input
             type="text"
             matInput
-            placeholder="********"
+            placeholder="******"
             formControlName="password"
           />
           <mat-error *ngIf="loginForm.get('password')?.hasError('required')">

@@ -6,13 +6,11 @@
   <div
     class="border border-light-subtle rounded position-absolute top-4 start-50 translate-middle-x p-4 w-75"
   >
-    <h1 class="h1 text-xl text-center mb-5">Lägg till nytt citat</h1>
-
     <input
       formControlName="author"
       class="form-control form-control-lg m-2 w-full"
       type="text"
-      placeholder="Författare"
+      placeholder="författare"
       required
     />
     @if(form.controls['author'].errors && form.controls['author'].touched) {
@@ -23,7 +21,7 @@
       formControlName="content"
       class="form-control form-control-lg m-2 w-full"
       type="text"
-      placeholder="Innehåll"
+      placeholder="innehåll"
       rows="4"
       cols="60"
       required
