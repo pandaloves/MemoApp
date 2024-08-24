@@ -9,11 +9,13 @@ import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 import { BooksService } from '../../../services/books.service';
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
+import { SanitizeService } from '../../../services/sanitize.service';
 
 @Component({
   selector: 'app-book-form',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, CommonModule],
   templateUrl: './book-form.component.html',
 })
 export class BookFormComponent implements OnInit, OnDestroy {
@@ -29,7 +31,8 @@ export class BookFormComponent implements OnInit, OnDestroy {
   constructor(
     private fb: FormBuilder,
     private activatedRouter: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private sanitizeService: SanitizeService
   ) {}
 
   ngOnInit(): void {
@@ -67,9 +70,17 @@ export class BookFormComponent implements OnInit, OnDestroy {
       return;
     }
 
+    // Sanitize the content before sending it
+    const sanitizedContent = this.sanitizeService.sanitizeHtml(
+      this.form.value.content
+    );
+
     if (!this.isEdit) {
       this.bookformSubscription = this.bookService
-        .addBook(this.form.value)
+        .addBook({
+          ...this.form.value,
+          content: sanitizedContent,
+        })
         .subscribe({
           next: () => {
             this.toasterService.success('Boken har lagts till!');

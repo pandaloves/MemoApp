@@ -18,8 +18,7 @@
     </thead>
     <tbody>
       <!-- Display the list of quotes -->
-      @for (item of (quotes$ | async); track item) {
-      <tr>
+      <tr *ngFor="let item of quotes$ | async; trackBy: trackById">
         <td class="text-center">{{ item.id }}</td>
         <td class="text-center">{{ item.author }}</td>
         <td class="text-center">"{{ item.content }}"</td>
@@ -33,7 +32,6 @@
           </button>
         </td>
       </tr>
-      }
     </tbody>
   </table>
 </div>

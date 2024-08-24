@@ -13,9 +13,13 @@
       placeholder="titel"
       required
     />
-    @if(form.controls['title'].errors && form.controls['title'].touched) {
-    <h5 class="h5 text-danger m-1">Titel krävs.</h5>
-    }
+
+    <h5
+      *ngIf="form.controls['title'].errors && form.controls['title'].touched"
+      class="h5 text-danger m-1"
+    >
+      Titel krävs.
+    </h5>
 
     <input
       formControlName="author"
@@ -24,9 +28,13 @@
       placeholder="författare"
       required
     />
-    @if(form.controls['author'].errors && form.controls['author'].touched) {
-    <h5 class="h5 text-danger m-1">Författare krävs.</h5>
-    }
+
+    <h5
+      *ngIf="form.controls['author'].errors && form.controls['author'].touched"
+      class="h5 text-danger m-1"
+    >
+      Författare krävs.
+    </h5>
 
     <input
       formControlName="publishYear"
@@ -36,10 +44,17 @@
       aria-label=".form-control-sm example"
       required
     />
-    @if(form.controls['publishYear'].errors &&
-    form.controls['publishYear'].touched) {
-    <h5 class="h5 text-danger m-1">Publiceringsår krävs.</h5>
-    }
+
+    <h5
+      *ngIf="
+        form.controls['publishYear'].errors &&
+        form.controls['publishYear'].touched
+      "
+      class="h5 text-danger m-1"
+    >
+      Publiceringsår krävs.
+    </h5>
+
     <div class="mt-4 d-flex flex-row gap-4 justify-center">
       <button
         type="submit"

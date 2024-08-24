@@ -57,7 +57,7 @@ export class AppComponent implements OnInit {
       window.matchMedia('(prefers-color-scheme: dark)').matches
     ) {
       this.darkMode = true;
-    
+
       document.documentElement.setAttribute(
         'data-theme',
         this.darkMode ? 'dark' : 'light'
@@ -65,10 +65,10 @@ export class AppComponent implements OnInit {
     }
   }
 
-   // Toggle the theme between dark and light mode
+  // Toggle the theme between dark and light mode
   toggleTheme() {
     this.darkMode = !this.darkMode;
-  
+
     document.documentElement.setAttribute(
       'data-theme',
       this.darkMode ? 'dark' : 'light'
