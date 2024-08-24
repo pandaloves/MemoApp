@@ -25,7 +25,7 @@ export class BooksComponent implements OnInit {
   delete(id: number) {
     this.bookService.deleteBook(id).subscribe({
       next: () => {
-        this.toaster.success('Boken har raderats!');
+        this.toaster.error('Boken har raderats!');
         this.getBooks();
       },
     });
