@@ -6,15 +6,11 @@
   <div
     class="border border-light-subtle rounded position-absolute top-4 start-50 translate-middle-x p-6 w-75"
   >
-    <h1 class="h1 fs-4 text-xl text-center mb-5">
-      {{ isEdit ? "Redigera bok" : "Lägg till ny bok" }}
-    </h1>
-
     <input
       formControlName="title"
       class="form-control form-control-lg m-2 w-full"
       type="text"
-      placeholder="Titel"
+      placeholder="titel"
       required
     />
     @if(form.controls['title'].errors && form.controls['title'].touched) {
@@ -25,7 +21,7 @@
       formControlName="author"
       class="form-control form-control-lg m-2 w-full"
       type="text"
-      placeholder="Författare"
+      placeholder="författare"
       required
     />
     @if(form.controls['author'].errors && form.controls['author'].touched) {
@@ -36,7 +32,7 @@
       formControlName="publishYear"
       class="form-control form-control-lg m-2 w-full"
       type="text"
-      placeholder="Publiceringsår"
+      placeholder="publiceringsår"
       aria-label=".form-control-sm example"
       required
     />
