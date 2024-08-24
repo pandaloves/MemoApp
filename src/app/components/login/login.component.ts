@@ -34,6 +34,7 @@ export class LoginComponent {
     password: ['', Validators.required],
   });
 
+  // Log in the user
   onLogin() {
     const email = this.loginForm.value.email!;
     const password = this.loginForm.value.password!;
@@ -52,7 +53,7 @@ export class LoginComponent {
         if (result && result.token) {
           localStorage.setItem('token', result.token);
           this.router.navigateByUrl('/books');
-          this.toaster.success('Logga in framgångsrikt!');
+          this.toaster.success('Loggat in framgångsrikt!');
         }
       });
   }

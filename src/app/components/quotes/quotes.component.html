@@ -17,6 +17,7 @@
       </tr>
     </thead>
     <tbody>
+      <!-- Display the list of quotes -->
       @for (item of (quotes$ | async); track item) {
       <tr>
         <td class="text-center">{{ item.id }}</td>
